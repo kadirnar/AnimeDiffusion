@@ -1,4 +1,3 @@
-
 import os
 import re
 
@@ -11,6 +10,7 @@ def get_requirements(req_path: str):
 
 
 INSTALL_REQUIRES = get_requirements("requirements.txt")
+
 
 def get_long_description():
     base_dir = os.path.abspath(os.path.dirname(__file__))
@@ -37,6 +37,7 @@ def get_license():
     init_file = os.path.join(current_dir, 'whisperplus', '__init__.py')
     with open(init_file, encoding='utf-8') as f:
         return re.search(r'^__license__ = [\'"]([^\'"]*)[\'"]', f.read(), re.M).group(1)
+
 
 def get_license():
     current_dir = os.path.abspath(os.path.dirname(__file__))
