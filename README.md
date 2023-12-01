@@ -21,7 +21,7 @@ cd AnimeUpscaler
 pip install -r requirements.txt
 ```
 
-## 🎙️ Usage
+## 🚀 Usage
 
 ```bash
 
