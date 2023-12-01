@@ -20,35 +20,35 @@ def get_long_description():
 
 def get_version():
     current_dir = os.path.abspath(os.path.dirname(__file__))
-    version_file = os.path.join(current_dir, 'animeup', '__init__.py')
+    version_file = os.path.join(current_dir, 'animediffusion', '__init__.py')
     with open(version_file, encoding='utf-8') as f:
         return re.search(r'^__version__ = [\'"]([^\'"]*)[\'"]', f.read(), re.M).group(1)
 
 
 def get_author():
     current_dir = os.path.abspath(os.path.dirname(__file__))
-    init_file = os.path.join(current_dir, 'animeup', '__init__.py')
+    init_file = os.path.join(current_dir, 'animediffusion', '__init__.py')
     with open(init_file, encoding='utf-8') as f:
         return re.search(r'^__author__ = [\'"]([^\'"]*)[\'"]', f.read(), re.M).group(1)
 
 
 def get_license():
     current_dir = os.path.abspath(os.path.dirname(__file__))
-    init_file = os.path.join(current_dir, 'animeup', '__init__.py')
+    init_file = os.path.join(current_dir, 'animediffusion', '__init__.py')
     with open(init_file, encoding='utf-8') as f:
         return re.search(r'^__license__ = [\'"]([^\'"]*)[\'"]', f.read(), re.M).group(1)
 
 
 setuptools.setup(
-    name='animeup',
+    name='animediffusion',
     version=get_version(),
     author=get_author(),
     author_email='kadir.nar@hotmail.com',
     license=get_license(),
-    description="AnimeUp: Anime Image Upscaler",
+    description="AnimeDiffusion: Anime Image Upscaler",
     long_description=get_long_description(),
     long_description_content_type='text/markdown',
-    url='https://github.com/kadirnar/animeupscaler',
+    url='https://github.com/kadirnar/AnimeDiffusion',
     install_requires=INSTALL_REQUIRES,
     python_requires='>=3.8',
 )
