@@ -3,7 +3,7 @@
     AnimeDiffusion: A Pytorch Library for Anime Image Generation
 </h2>
 <div>
-    <img width="400" alt="teaser" src="doc\anime_diffusion_teaser.png">
+    <img width="300" alt="teaser" src="doc\anime_diffusion_teaser.png">
 </div>
 <div>
     <a href="https://pypi.org/project/AnimeDiffusion" target="_blank">
