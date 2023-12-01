@@ -2,7 +2,7 @@ import logging
 from typing import List, Optional, Union
 
 import torch
-from diffusers import LatentConsistencyModelPipeline
+from diffusers import LatentConsistencyModelPipeline, UNet2DConditionModel
 
 from ..utils.scheduler_list import get_scheduler
 
@@ -28,12 +28,18 @@ class LCM_SD15:
 
         logging.info(f"Using device: {self.device}")
 
-    def load_model(self, stable_model_id: str, scheduler: Optional[str] = None):
+    def load_model(self, stable_model_id: str, scheduler: Optional[str] = None, lcm_model_id: Optional[str] = None):
         logging.info('Loading Latent Consistency Model (SD15)')
+        if lcm_model_id is None:
+            lcm_model_id = stable_model_id
+            
+        unet = UNet2DConditionModel.from_pretrained(lcm_model_id, torch_dtype=torch.float16, variant="fp16")
         self.pipeline = LatentConsistencyModelPipeline.from_pretrained(
             pretrained_model_name_or_path=stable_model_id,
             torch_dtype=torch.float16,
+            variant="fp16",
             use_safetensors=True,
+            unet=unet,
         )
 
         if scheduler is not None:
